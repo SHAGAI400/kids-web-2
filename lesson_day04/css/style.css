@@ -1,0 +1,75 @@
+.card {
+    width: 385px;
+    weight: 485px;
+    text-align: center;
+    border: 3px solid #75c310;
+    border-radius: 22px;
+    padding: 55px 65px;
+    box-sizing: border-box;
+    margin-top: 150px;
+}
+
+.card img {
+    width: 205px;
+    margin-top: -100px;
+}
+
+.card i {
+    font-size: 14px;
+    margin-top: 84px;
+    display:block
+}
+
+.card-2 {
+    width: 280px; ;
+    border: white;
+    padding: 10px;
+    box-shadow: 0 0 10px gray;
+ border-radius:30px;
+    
+}
+
+
+
+.card-2 img {
+    border-radius: 30px;
+}
+.card-2 p {
+    color: darkseagreen;
+}
+.card-2 div {
+    padding: 10px;
+    background-color: blueviolet;
+    width: 50px;
+    color: honeydew;
+    border-radius: 10px;
+}
+.card-3{
+   text-align: center;
+   width: 300px;
+   border: 1px solid rgb(0, 0, 0);
+   border-radius: 10px;
+   text-align: center;
+}
+.card-3 h1 {
+    
+}
+.card-3 .profile { 
+    width: 244px;
+    
+}
+.card-3 div {
+    padding: 10px;
+    background-color: blueviolet;
+    width: 80px;
+    color: white;
+    border-radius: 80px;
+    margin: 0 auto;
+}
+.card-4 {
+    width: 395px;
+    text-align: center;
+}
+.card-4 img {
+    width: 330;
+}

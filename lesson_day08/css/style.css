@@ -1,0 +1,104 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family:"Montserrat", serif;
+}
+header {
+    width:100%;
+}
+
+.header-section {
+    width: 1186px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+nav {
+     width: 675px;
+     display: flex;
+     justify-content: space-between;
+     margin-top: 20px;
+
+}
+a {
+    display: block;
+    color: #75c310;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.page {
+    color:  black;
+}
+
+
+.header-section button {
+    background-color: #75c310;
+    color: white;
+    border:0;
+    border-radius: 30px;
+    padding: 13px 26px;
+    margin-top: -10px;
+    font-size: 15px;
+    font-weight: 700;
+    height: 44px;
+}
+
+.logo span {
+    color: #75c310;
+}
+section {
+    width: 1186px;
+    margin: 0 auto;
+    padding: 92px 0;
+}
+
+.portfolio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 500;
+
+}
+
+.btn {
+    background-color: #75c310;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 30px;
+    padding: 15px 26px ;
+}
+section h1 {
+    color: #000;
+    text-align: right;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    justify-content: end;
+    display: flex;
+}
+.contact {
+    display: flex;
+    
+}
+.contact div {
+    text-align: right;
+}
+.clitents {
+    text-align: center;
+}

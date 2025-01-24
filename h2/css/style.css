@@ -1,0 +1,16 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family:"Montserrat", serif;
+    background-color: black;
+
+}
+.logo {
+    width: 200px;
+}
+.title {
+    color: white;
+}
+.title p {
+    line-height: 30px;
+}

@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+    margin: 0;
+    font-family: "Montserrat", serif;
+    background-color: orange;
+
+}
+
+/* select тагийн үндсэн стиль */
+select {
+    width: 200px; /* Өргөн */
+    height: 40px; /* Өндөр */
+    padding: 10px; /* Дотор талын зай */
+    font-size: 16px; /* Үсгийн хэмжээ */
+    border: 2px solid #4CAF50; /* Хилийн өнгө */
+    border-radius: 10px; /* Хилийг дугуйлсан */
+    background-color: #f4f4f4; /* Дэлгэцийн өнгө */
+    color: #333; /* Үсгийн өнгө */
+    outline: none; /* Сул утга */
+    cursor: pointer; /* Дарахад курсор гартай */
+    transition: all 0.3s ease; /* Стилээс шилжилт хийх хурд */
+}
+
+/* Hover үед select тагийн стиль */
+select:hover {
+    border-color: #45a049; /* Hover үед хилний өнгө */
+    background-color: #e1f7d5; /* Hover үед дэлгэцийн өнгө */
+}
+
+/* Active буюу select тагийг сонгосон үед */
+select:focus {
+    border-color: #523e8e; /* Сонгосон үед хилний өнгө */
+    background-color: #d8f2d0; /* Сонгосон үед дэлгэцийн өнгө */
+}
+
+/* Select option-ын стиль */
+select option {
+    padding: 10px; /* Option-уудын дотор талын зай */
+    font-size: 16px; /* Үсгийн хэмжээ */
+}

@@ -1,0 +1,25 @@
+body {
+    background-color: rgb(255, 196, 1);
+}
+header {
+    background-color: darkblue;
+    padding: 10px;
+}
+nav {
+    background-color: cyan;
+}
+a {
+    color: darkgrey;
+}
+main {
+    background-color: rebeccapurple;
+}
+.section-1 {
+     background-color: darkorange;
+}
+.section-2{
+    background-color: lawngreen;
+}
+footer {
+    background-color: yellow;
+}

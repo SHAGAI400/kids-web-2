@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гүйлтийн Зам Захиалах</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #3b8d99, #6b5b95);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      width: 350px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .option-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .option-button {
+      padding: 14px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .option-button:hover {
+      background-color: #218838;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      font-size: 16px;
+      margin-top: 8px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #3b8d99;
+      outline: none;
+    }
+
+    #orderButton {
+      width: 100%;
+      padding: 14px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    #orderButton:hover {
+      background-color: #218838;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Гүйлтийн Зам Захиалах</h2>
+
+    <div class="option-container">
+      <button class="option-button" onclick="setOption('KEMILING')">KEMILING</button>
+      <button class="option-button" onclick="setOption('CIAPO')">CIAPO</button>
+      <button class="option-button" onclick="setOption('KEMILING BIG')">KEMILING BIG</button>
+      <button class="option-button" onclick="setOption('CIAPO BIG')">CIAPO BIG</button>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Утасны дугаар:</label>
+      <input type="text" id="phone" placeholder="Жишээ: 88758510">
+    </div>
+
+    <div class="form-group">
+      <button id="orderButton" onclick="placeOrder()" disabled>Захиалах</button>
+    </div>
+
+    <p id="message"></p>
+
+  </div>
+
+  <script>
+    let selectedOption = "";
+
+    // Set the selected option when a button is clicked
+    function setOption(option) {
+      selectedOption = option;
+      document.getElementById("orderButton").disabled = false;
+      document.getElementById('message').textContent = `Танилцуулга: ${option} гүйлтийн зам сонгогдлоо.`;
+    }
+
+    // Validate phone number format
+    function isValidPhoneNumber(phoneNumber) {
+      const phonePattern = /^[789][0-9]{7,8}$/;
+      return phonePattern.test(phoneNumber);
+    }
+
+    // Place the order
+    function placeOrder() {
+      const phone = document.getElementById('phone').value;
+      const messageElement = document.getElementById('message');
+
+      // Validate phone number
+      if (isValidPhoneNumber(phone)) {
+        // Send the phone number to the backend
+        fetch('http://localhost:3000/place-order', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            phoneNumber: phone,  // Send the phone number
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          messageElement.textContent = `Захиалгыг амжилттай илгээв. Утасны дугаар: ${phone}`;
+          messageElement.style.color = '#28a745';  // Green for success
+        })
+        .catch(error => {
+          messageElement.textContent = 'Алдаа гарлаа, дахин оролдоно уу.';
+          messageElement.style.color = '#e74c3c';  // Red for error
+          console.log(error)
+        });
+      } else {
+        messageElement.textContent = 'Тохирох утасны дугаар оруулна уу. (Жишээ: 88758510)';
+        messageElement.style.color = '#e74c3c';  // Red for error
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

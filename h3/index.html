@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 350px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .chatbox {
+            height: 400px;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .chatbox .user {
+            color: blue;
+            margin-bottom: 10px;
+        }
+
+        .chatbox .bot {
+            color: green;
+            margin-bottom: 10px;
+        }
+
+        .chat-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-top: 1px solid #ddd;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .send-btn:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="chat-container">
+        <div id="chatbox" class="chatbox"></div>
+        <input type="text" id="user-input" class="chat-input" placeholder="Таны асуулт...">
+        <button id="send-btn" class="send-btn">Илгээх</button>
+    </div>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const userInput = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+
+        // Функцүүд
+        function appendMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(sender);
+            messageDiv.textContent = message;
+            chatbox.appendChild(messageDiv);
+            chatbox.scrollTop = chatbox.scrollHeight;  // Шинээр ирсэн мессежийг доод талд байрлуулах
+        }
+
+        function getBotResponse(userMessage) {
+            const lowerCaseMessage = userMessage.toLowerCase();
+
+            if (lowerCaseMessage.includes('сайн уу') || lowerCaseMessage.includes('хай')) {
+                return "Сайн уу! Ямар асуулттай байна вэ?";
+            } else if (lowerCaseMessage.includes('таны нэр юу')) {
+                return "Миний нэр бол ChatBot.";
+            } else if (lowerCaseMessage.includes('та ямар вэбсайт хийх вэ')) {
+                return "Би вэбсайт хийж чадахгүй, гэхдээ миний танилцуулга нь вэбсайтын үндэс!";
+            } else if (lowerCaseMessage.includes('танд юу хийх вэ')) {
+                return "Би таны асуултад хариулж байна!";
+            } else {
+                return "Би таны асуултад хариулж чадсангүй. Та дахин оролдож үзнэ үү.";
+            }
+        }
+
+        // Бүх үйлдлүүдийг хийх
+        sendBtn.addEventListener('click', function() {
+            const message = userInput.value.trim();
+            if (message !== "") {
+                appendMessage('user', message);  // Хэрэглэгчийн мессежийг илгээх
+                const botMessage = getBotResponse(message);  // Ботын хариуг авах
+                appendMessage('bot', botMessage);  // Ботын хариуг харуулах
+                userInput.value = "";  // Хэрэглэгчийн input-ыг цэвэрлэх
+            }
+        });
+
+        // Enter товчийг дарж мессеж илгээх
+        userInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+
+</body>
+</html>

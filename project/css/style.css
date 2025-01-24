@@ -1,0 +1,157 @@
+html {
+    background-color: black;
+}
+
+body {
+    width: 100%;
+    margin: 0% auto;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+}
+
+header {
+    width: 40%;
+    margin: 0%;
+}
+
+nav {
+    width: 70%;
+    margin: 0% auto;
+    margin-left: 150px auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+nav a {
+    text-shadow: 0 0 5px black;
+}
+
+.logo {
+    width: 100px;
+    height: 31.323px;
+}
+
+.head {
+    display: flex;
+}
+
+h1 {
+    color: #FFF;
+    text-shadow: 5px 5px 10px #000;
+    font-family: Montserrat;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.hero {
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+    background-image: url("../images/blue.png");
+    height: 1000px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.hero .title {
+    width: 100%;
+}
+
+.hero h1 {
+    margin-top: 0;
+    font-size: 90px;
+    font-weight: 800;
+    text-shadow: 5px 5px 10px black;
+
+
+}
+
+.hero p {
+
+
+    font-size: 30px;
+    font-family: 'DM sans', sans-serif;
+    font-weight: 200;
+    letter-spacing: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+}
+
+.hero div {
+    font-size: 20px;
+}
+
+
+
+
+
+.button {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: none;
+    color: white;
+    padding: 20px 80px;
+    margin-top: 40px;
+    display: inline-block;
+    cursor: pointer;
+
+
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+    transition: all 0.8s;
+
+
+}
+
+.menu {
+    height: 800px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 40px;
+}
+
+.menu div {
+    width: 450px;
+    background-color: #101010a5;
+    height: 650px;
+    text-align: center;
+    border-left: 8px solid;
+    border-image:
+        linear-gradient(to top,
+            #350064, #fd75fd) 1 100%;
+}
+
+.menu img {
+    width: 500px;
+    margin-top: 50px;
+    margin-left: -30px;
+
+}
+
+img {
+    width: 500px;
+    height: 500px;
+}
+
+.button {
+    border: 1px solid rgba(red, green, blue, alpha);
+}
